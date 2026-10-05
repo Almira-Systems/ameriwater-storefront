@@ -16,7 +16,6 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
 type Documents = {
     "\n  fragment MetaobjectDetails on Metaobject {\n    id\n    handle\n    type\n    modelNumber: field(key: \"name\") {\n      value\n    }\n  }\n": typeof types.MetaobjectDetailsFragmentDoc,
     "\n  query RelatedDevices($modelFilters: [ProductFilter!]) {\n    collection(handle: \"all\") {\n      products(first: 20, filters: $modelFilters) {\n        nodes {\n          id\n          title\n          ...ProductCardFields\n        }\n      }\n    }\n  }\n": typeof types.RelatedDevicesDocument,
-    "\n  query GetDevicesByModels($modelNumbers: [String!]!) {\n    products(first: 100, query: \"product_type:Device\") {\n      nodes {\n        id\n        title\n        handle\n      }\n    }\n  }\n": typeof types.GetDevicesByModelsDocument,
     "\n  mutation CreateNewCart {\n    cartCreate {\n      cart {\n        ...CartFields\n      }\n    }\n  }\n": typeof types.CreateNewCartDocument,
     "\n  fragment CartFields on Cart {\n    id\n    checkoutUrl\n    lines(first: 50) {\n      nodes {\n        id\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            selectedOptions {\n              name\n              value\n            }\n            sku\n            availableForSale\n            image {\n              url\n            }\n            product {\n              ...ProductCardFields\n            }\n          }\n        }\n        quantity\n        cost {\n          totalAmount {\n            amount\n            currencyCode\n          }\n        }\n      }\n    }\n  }\n": typeof types.CartFieldsFragmentDoc,
     "\n  query GetCart($cartId: ID!) {\n    cart(id: $cartId) {\n      ...CartFields\n    }\n  }\n": typeof types.GetCartDocument,
@@ -34,7 +33,6 @@ type Documents = {
 const documents: Documents = {
     "\n  fragment MetaobjectDetails on Metaobject {\n    id\n    handle\n    type\n    modelNumber: field(key: \"name\") {\n      value\n    }\n  }\n": types.MetaobjectDetailsFragmentDoc,
     "\n  query RelatedDevices($modelFilters: [ProductFilter!]) {\n    collection(handle: \"all\") {\n      products(first: 20, filters: $modelFilters) {\n        nodes {\n          id\n          title\n          ...ProductCardFields\n        }\n      }\n    }\n  }\n": types.RelatedDevicesDocument,
-    "\n  query GetDevicesByModels($modelNumbers: [String!]!) {\n    products(first: 100, query: \"product_type:Device\") {\n      nodes {\n        id\n        title\n        handle\n      }\n    }\n  }\n": types.GetDevicesByModelsDocument,
     "\n  mutation CreateNewCart {\n    cartCreate {\n      cart {\n        ...CartFields\n      }\n    }\n  }\n": types.CreateNewCartDocument,
     "\n  fragment CartFields on Cart {\n    id\n    checkoutUrl\n    lines(first: 50) {\n      nodes {\n        id\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            selectedOptions {\n              name\n              value\n            }\n            sku\n            availableForSale\n            image {\n              url\n            }\n            product {\n              ...ProductCardFields\n            }\n          }\n        }\n        quantity\n        cost {\n          totalAmount {\n            amount\n            currencyCode\n          }\n        }\n      }\n    }\n  }\n": types.CartFieldsFragmentDoc,
     "\n  query GetCart($cartId: ID!) {\n    cart(id: $cartId) {\n      ...CartFields\n    }\n  }\n": types.GetCartDocument,
@@ -72,10 +70,6 @@ export function graphql(source: "\n  fragment MetaobjectDetails on Metaobject {\
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query RelatedDevices($modelFilters: [ProductFilter!]) {\n    collection(handle: \"all\") {\n      products(first: 20, filters: $modelFilters) {\n        nodes {\n          id\n          title\n          ...ProductCardFields\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query RelatedDevices($modelFilters: [ProductFilter!]) {\n    collection(handle: \"all\") {\n      products(first: 20, filters: $modelFilters) {\n        nodes {\n          id\n          title\n          ...ProductCardFields\n        }\n      }\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query GetDevicesByModels($modelNumbers: [String!]!) {\n    products(first: 100, query: \"product_type:Device\") {\n      nodes {\n        id\n        title\n        handle\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetDevicesByModels($modelNumbers: [String!]!) {\n    products(first: 100, query: \"product_type:Device\") {\n      nodes {\n        id\n        title\n        handle\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
